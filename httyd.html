@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>How to Train Your Dragon | Marsh's Home</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:Montserrat,sans-serif;
+
+background:
+linear-gradient(rgba(7,10,18,.84),rgba(7,10,18,.94)),
+url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=80");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+color:white;
+
+}
+
+.wrapper{
+
+width:90%;
+max-width:1450px;
+
+margin:auto;
+
+padding:40px 0 80px;
+
+}
+
+.back{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+text-decoration:none;
+
+color:#dddddd;
+
+font-weight:600;
+
+transition:.3s;
+
+margin-bottom:35px;
+
+}
+
+.back:hover{
+
+color:#ffb347;
+
+}
+
+.hero{
+
+position:relative;
+
+height:420px;
+
+overflow:hidden;
+
+border-radius:24px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+margin-bottom:45px;
+
+}
+
+.hero img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+transition:1s;
+
+}
+
+.hero:hover img{
+
+transform:scale(1.05);
+
+}
+
+.heroOverlay{
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+justify-content:flex-end;
+
+flex-direction:column;
+
+padding:50px;
+
+background:
+linear-gradient(to top,
+rgba(0,0,0,.92),
+rgba(0,0,0,.45),
+rgba(0,0,0,.15));
+
+}
+
+.hero h1{
+
+font-family:'Bebas Neue',sans-serif;
+
+font-size:5rem;
+
+letter-spacing:2px;
+
+text-shadow:0 5px 18px black;
+
+}
+
+.hero h2{
+
+font-family:'Caveat',cursive;
+
+font-size:2rem;
+
+font-weight:normal;
+
+margin-top:-10px;
+
+color:#ffcb73;
+
+}
+
+.hero p{
+
+margin-top:18px;
+
+font-size:1.1rem;
+
+max-width:720px;
+
+line-height:1.7;
+
+color:#f2f2f2;
+
+text-shadow:0 2px 10px black;
+
+}
+
+.infoGrid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+
+gap:30px;
+
+margin-bottom:60px;
+
+}
+
+.infoCard{
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.08);
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 15px 30px rgba(0,0,0,.25);
+
+}
+
+.infoCard h3{
+
+font-family:'Bebas Neue';
+
+font-size:2rem;
+
+letter-spacing:1px;
+
+margin-bottom:15px;
+
+color:#ffcb73;
+
+}
+
+.infoCard p{
+
+line-height:1.8;
+
+color:#ededed;
+
+}
+
+.section{
+
+margin-top:70px;
+
+}
+
+.sectionHeader{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:end;
+
+margin-bottom:30px;
+
+border-bottom:2px solid rgba(255,179,71,.25);
+
+padding-bottom:15px;
+
+}
+
+.sectionHeader h2{
+
+font-family:'Bebas Neue';
+
+font-size:3rem;
+
+letter-spacing:1px;
+
+}
+
+.sectionHeader span{
+
+color:#bbbbbb;
+
+font-size:.95rem;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
+
+}
+
+.mediaCard{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:20px;
+
+overflow:hidden;
+
+transition:.35s;
+
+backdrop-filter:blur(15px);
+
+box-shadow:0 12px 30px rgba(0,0,0,.3);
+
+}
+
+.mediaCard:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 35px rgba(255,179,71,.25);
+
+}
+
+.mediaCard img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+transition:.6s;
+
+}
+
+.mediaCard:hover img{
+
+transform:scale(1.08);
+
+}
+
+.content{
+
+padding:25px;
+
+}
+
+.type{
+
+display:inline-block;
+
+background:rgba(255,179,71,.18);
+
+padding:8px 15px;
+
+border-radius:50px;
+
+font-size:.75rem;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+color:#ffcb73;
+
+margin-bottom:15px;
+
+}
+
+.content h3{
+
+font-family:'Bebas Neue';
+
+font-size:2rem;
+
+letter-spacing:1px;
+
+margin-bottom:8px;
+
+}
+
+.content p{
+
+color:#dddddd;
+
+line-height:1.7;
+
+margin-bottom:22px;
+
+}
+
+.watch{
+
+display:inline-block;
+
+text-decoration:none;
+
+padding:12px 28px;
+
+background:#ffb347;
+
+color:#111;
+
+border-radius:40px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.watch:hover{
+
+transform:scale(1.05);
+
+}
+
+@media(max-width:900px){
+
+.hero{
+
+height:320px;
+
+}
+
+.hero h1{
+
+font-size:3.2rem;
+
+}
+
+.hero h2{
+
+font-size:1.6rem;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<a class="back" href="index.html">
+← Back to Marsh's Home
+</a>
+
+<div class="hero">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=80">
+
+<div class="heroOverlay">
+
+<h1>How to Train Your Dragon</h1>
+
+<h2>The Dragon Archives</h2>
+
+<p>
+"This is Berk."
+<br><br>
+Explore every film, television series, short film and holiday special from the
+How to Train Your Dragon universe. Everything on this page has been organised
+to make following Hiccup and Toothless' journey as simple as possible.
+</p>
+
+</div>
+
+</div>
+
+<div class="infoGrid">
+
+<div class="infoCard">
+
+<h3>About this Collection</h3>
+
+<p>
+
+Welcome to the Dragon Archives.
+
+This collection brings together every feature film,
+television series, short film and holiday special set within the
+How to Train Your Dragon universe.
+
+Whether you're revisiting Berk or experiencing the adventure for the first
+time, every title has been carefully organised to create one complete viewing experience.
+
+</p>
+
+</div>
+
+<div class="infoCard">
+
+<h3>Viewing Order</h3>
+
+<p>
+
+Unlike most collections, this archive follows the story chronologically rather
+than by release date.
+
+Movies, television series and specials have been placed exactly where they
+fit within the timeline so you can experience Hiccup's story from beginning
+to end without wondering what comes next.
+
+</p>
+
+</div>
+
+</div>
+
+<section class="section">
+
+<div class="sectionHeader">
+
+<div>
+
+<h2>🎬 Movies</h2>
+
+<span>The feature-length adventures of Hiccup & Toothless.</span>
+
+</div>
+
+<span>3 Films</span>
+
+</div>
+
+<div class="grid">
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+MOVIE • 2010
+</div>
+
+<h3>How to Train Your Dragon</h3>
+
+<p>
+
+The adventure that started everything.
+Join Hiccup as he befriends Toothless and changes Berk forever.
+
+</p>
+
+<a class="watch" href="httyd1.html">
+
+Watch →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+MOVIE • 2014
+</div>
+
+<h3>How to Train Your Dragon 2</h3>
+
+<p>
+
+Five years later, Hiccup discovers a hidden dragon sanctuary and a truth
+that changes his life forever.
+
+</p>
+
+<a class="watch" href="httyd2.html">
+
+Watch →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+MOVIE • 2019
+</div>
+
+<h3>The Hidden World</h3>
+
+<p>
+
+The final chapter of Hiccup and Toothless' journey as a new world is
+discovered beyond the horizon.
+
+</p>
+
+<a class="watch" href="hiddenworld.html">
+
+Watch →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="section">
+
+<div class="sectionHeader">
+
+<div>
+
+<h2>📺 Television Series</h2>
+
+<span>Every adventure between the films.</span>
+
+</div>
+
+<span>3 Series • 8 Seasons</span>
+
+</div>
+
+<div class="grid">
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+TV SERIES
+</div>
+
+<h3>Dragons: Riders of Berk</h3>
+
+<p>
+
+Continue Hiccup's early adventures as Berk learns to live alongside dragons
+following the events of the first film.
+
+</p>
+
+<a class="watch" href="ridersofberk.html">
+
+Browse →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+TV SERIES
+</div>
+
+<h3>Dragons: Defenders of Berk</h3>
+
+<p>
+
+The Dragon Riders face new enemies, new dragons and even greater challenges
+while protecting Berk.
+
+</p>
+
+<a class="watch" href="defendersofberk.html">
+
+Browse →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+TV SERIES
+</div>
+
+<h3>Dragons: Race to the Edge</h3>
+
+<p>
+
+Follow Hiccup and the riders as they discover the Edge, hunt for Dragon Eyes,
+and prepare for the events of the second movie.
+
+</p>
+
+<a class="watch" href="racetotheedge.html">
+
+Browse →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="sectionHeader">
+
+<div>
+
+<h2>🎞 Shorts & Specials</h2>
+
+<span>Every extra story from Berk.</span>
+
+</div>
+
+<span>6 Shorts</span>
+
+</div>
+
+<div class="grid">
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+SHORT FILM
+</div>
+
+<h3>Legend of the Boneknapper Dragon</h3>
+
+<p>
+
+Gobber tells the legendary tale of his greatest dragon hunt.
+
+</p>
+
+<a class="watch" href="boneknapper.html">
+
+Watch →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+SHORT FILM
+</div>
+
+<h3>Book of Dragons</h3>
+
+<p>
+
+Discover the dragons of Berk through Fishlegs' famous Dragon Manual.
+
+</p>
+
+<a class="watch" href="bookofdragons.html">
+
+Watch →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+HOLIDAY SPECIAL
+</div>
+
+<h3>Gift of the Night Fury</h3>
+
+<p>
+
+A touching Winter holiday adventure explaining the origins of Snoggletog traditions.
+
+</p>
+
+<a class="watch" href="giftofthenightfury.html">
+
+Watch →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+SHORT FILM
+</div>
+
+<h3>Dawn of the Dragon Racers</h3>
+
+<p>
+
+Learn how the exciting sport of Dragon Racing first began on Berk.
+
+</p>
+
+<a class="watch" href="dawnofthedragonracers.html">
+
+Watch →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+HOLIDAY SPECIAL
+</div>
+
+<h3>Homecoming</h3>
+
+<p>
+
+Years after The Hidden World, a new generation discovers the story of dragons.
+
+</p>
+
+<a class="watch" href="homecoming.html">
+
+Watch →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mediaCard">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80">
+
+<div class="content">
+
+<div class="type">
+YULE LOG
+</div>
+
+<h3>Snoggletog Log</h3>
+
+<p>
+
+A relaxing festive fireplace experience set in the world of Berk.
+
+</p>
+
+<a class="watch" href="snoggletog.html">
+
+Watch →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer style="margin-top:80px;text-align:center;color:#aaa;padding:40px 0;border-top:1px solid rgba(255,255,255,.08);">
+
+<p style="font-size:.95rem;">
+Marsh's Home • How to Train Your Dragon Collection
+</p>
+
+<p style="margin-top:10px;font-size:.85rem;color:#777;">
+Built with ❤️ for the complete chronological viewing experience.
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
