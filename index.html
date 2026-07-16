@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DreamWorks Collection</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Montserrat,sans-serif;
+    background:#090909;
+    color:white;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.container{
+
+    width:90%;
+    max-width:1400px;
+
+}
+
+h2{
+
+    margin-bottom:25px;
+    color:#d8d8d8;
+    font-weight:600;
+    letter-spacing:1px;
+
+}
+
+.collections{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+    gap:30px;
+
+}
+
+.card{
+
+    position:relative;
+
+    height:270px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#111;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:
+    0 0 35px rgba(255,140,0,.35);
+
+}
+
+.card img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    to top,
+    rgba(0,0,0,.88) 10%,
+    rgba(0,0,0,.35) 55%,
+    rgba(0,0,0,.15));
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    padding:30px;
+
+}
+
+.tag{
+
+    color:#ffb347;
+
+    font-size:.75rem;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+    letter-spacing:2px;
+
+}
+
+.title{
+
+    font-family:"Bebas Neue",sans-serif;
+
+    font-size:3rem;
+
+    line-height:0.95;
+
+    margin-bottom:15px;
+
+}
+
+.description{
+
+    color:#ddd;
+
+    font-size:.9rem;
+
+    line-height:1.5;
+
+    max-width:420px;
+
+}
+
+.badges{
+
+    margin-top:18px;
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.badge{
+
+    background:rgba(255,255,255,.1);
+
+    backdrop-filter:blur(8px);
+
+    padding:7px 12px;
+
+    border-radius:30px;
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Explore Collections</h2>
+
+<div class="collections">
+
+<a class="card" href="httyd/index.html">
+
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1600&q=80">
+
+<div class="overlay">
+
+<div class="tag">
+Complete Collection
+</div>
+
+<div class="title">
+HOW TO TRAIN<br>YOUR DRAGON
+</div>
+
+<div class="description">
+Every movie, TV series, short film and special presented in chronological order.
+</div>
+
+<div class="badges">
+
+<div class="badge">3 Movies</div>
+
+<div class="badge">8 Seasons</div>
+
+<div class="badge">Specials</div>
+
+</div>
+
+</div>
+
+</a>
+
+<a class="card" href="arcadia/index.html">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80">
+
+<div class="overlay">
+
+<div class="tag">
+The Arcadia Saga
+</div>
+
+<div class="title">
+TALES OF<br>ARCADIA
+</div>
+
+<div class="description">
+Trollhunters, 3Below, Wizards and Rise of the Titans in viewing order.
+</div>
+
+<div class="badges">
+
+<div class="badge">6 Parts</div>
+
+<div class="badge">Finale</div>
+
+<div class="badge">Chronological</div>
+
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
