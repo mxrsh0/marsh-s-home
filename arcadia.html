@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arcadia | Marsh's Home</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#090909;
+color:white;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+line-height:1.8;
+}
+
+/* ------------------------------------------------ */
+/* Scrollbar                                        */
+/* ------------------------------------------------ */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#0d0d0d;
+}
+
+::-webkit-scrollbar-thumb{
+background:#7d683e;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#b59b60;
+}
+
+/* ------------------------------------------------ */
+/* Navigation                                       */
+/* ------------------------------------------------ */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:24px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+transition:.4s;
+background:linear-gradient(to bottom,rgba(0,0,0,.78),rgba(0,0,0,0));
+backdrop-filter:blur(8px);
+}
+
+.logo{
+font-family:'Cinzel',serif;
+font-size:1.8rem;
+letter-spacing:3px;
+color:#f2e5bb;
+text-decoration:none;
+}
+
+nav ul{
+display:flex;
+gap:36px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-size:.95rem;
+letter-spacing:1px;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#d8bf80;
+}
+
+/* ------------------------------------------------ */
+/* Hero                                             */
+/* ------------------------------------------------ */
+
+.hero{
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+text-align:center;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+url("media/arcadia/hero.jpg");
+background-size:cover;
+background-position:center;
+transform:scale(1.05);
+animation:heroZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom{
+from{
+transform:scale(1.05);
+}
+to{
+transform:scale(1.14);
+}
+}
+
+.hero::after{
+content:"";
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+height:260px;
+background:linear-gradient(to bottom,transparent,#090909);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+padding:40px;
+animation:fadeUp 1.8s ease;
+}
+
+.hero h1{
+font-family:'Cinzel',serif;
+font-size:5rem;
+font-weight:500;
+letter-spacing:8px;
+margin-bottom:25px;
+text-shadow:0 0 25px rgba(0,0,0,.8);
+}
+
+.hero p{
+font-size:1.15rem;
+max-width:700px;
+margin:auto;
+color:#e5e5e5;
+}
+
+.scroll-indicator{
+position:absolute;
+bottom:45px;
+left:50%;
+transform:translateX(-50%);
+z-index:5;
+font-size:.8rem;
+letter-spacing:4px;
+opacity:.8;
+animation:float 2.5s infinite;
+}
+
+@keyframes float{
+
+0%{
+transform:translate(-50%,0);
+}
+
+50%{
+transform:translate(-50%,10px);
+}
+
+100%{
+transform:translate(-50%,0);
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* ------------------------------------------------ */
+/* Intro                                            */
+/* ------------------------------------------------ */
+
+.intro{
+padding:140px 12%;
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+.intro h2{
+font-family:'Cinzel',serif;
+font-size:2.8rem;
+margin-bottom:35px;
+color:#ead7a4;
+letter-spacing:2px;
+}
+
+.intro p{
+font-size:1.08rem;
+color:#d7d7d7;
+margin-bottom:28px;
+}
+
+/* ------------------------------------------------ */
+/* Shared Sections                                  */
+/* ------------------------------------------------ */
+
+.section{
+padding:120px 8%;
+}
+
+.section-title{
+font-family:'Cinzel',serif;
+font-size:2.8rem;
+text-align:center;
+margin-bottom:20px;
+color:#ecd8a4;
+letter-spacing:3px;
+}
+
+.section-subtitle{
+text-align:center;
+max-width:850px;
+margin:0 auto 70px;
+color:#d0d0d0;
+font-size:1.05rem;
+}
+
+/* ------------------------------------------------ */
+/* Cards                                            */
+/* ------------------------------------------------ */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+gap:42px;
+}
+
+.card{
+background:#111;
+border-radius:18px;
+overflow:hidden;
+transition:.45s;
+border:1px solid rgba(255,255,255,.06);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 25px 50px rgba(0,0,0,.45);
+}
+
+.card-image{
+height:260px;
+background:#222;
+background-size:cover;
+background-position:center;
+}
+
+.card-content{
+padding:34px;
+}
+
+.card h3{
+font-family:'Cinzel',serif;
+font-size:1.6rem;
+margin-bottom:18px;
+color:#ead39b;
+}
+
+.card p{
+color:#d4d4d4;
+font-size:.97rem;
+margin-bottom:22px;
+}
+
+.card a{
+display:inline-block;
+padding:12px 24px;
+border:1px solid #d5b877;
+border-radius:40px;
+text-decoration:none;
+color:#e5d3a2;
+transition:.35s;
+}
+
+.card a:hover{
+background:#d5b877;
+color:#111;
+}
+
+/* ------------------------------------------------ */
+/* Quote                                            */
+/* ------------------------------------------------ */
+
+.quote{
+padding:160px 10%;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.82)),
+url("media/arcadia/quote-bg.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+.quote blockquote{
+font-family:'Cinzel',serif;
+font-size:2.4rem;
+max-width:950px;
+margin:auto;
+line-height:1.7;
+color:#f0e1b5;
+}
+
+.quote span{
+display:block;
+margin-top:40px;
+font-size:.95rem;
+letter-spacing:3px;
+color:#d7d7d7;
+}
+
+/* ------------------------------------------------ */
+/* Footer                                           */
+/* ------------------------------------------------ */
+
+footer{
+padding:90px 10%;
+text-align:center;
+background:#050505;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer h3{
+font-family:'Cinzel',serif;
+font-size:2rem;
+color:#ead39b;
+margin-bottom:18px;
+}
+
+footer p{
+color:#bfbfbf;
+margin-bottom:25px;
+}
+
+footer a{
+color:#d5b877;
+text-decoration:none;
+}
+
+/* ------------------------------------------------ */
+/* Responsive                                       */
+/* ------------------------------------------------ */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:3.3rem;
+letter-spacing:4px;
+}
+
+.section-title{
+font-size:2.2rem;
+}
+
+nav ul{
+display:none;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<a href="index.html" class="logo">MARSH'S HOME</a>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+<li><a href="#collections">Collections</a></li>
+<li><a href="#timeline">Timeline</a></li>
+<li><a href="#gallery">Gallery</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>ARCADIA</h1>
+
+<p>
+A forgotten paradise. Ancient forests, impossible ruins,
+towering creatures, timeless legends and the stories that
+turned imagination into home.
+</p>
+
+</div>
+
+<div class="scroll-indicator">
+SCROLL
+</div>
+
+</section>
+
+<section class="intro">
+
+<h2>Welcome to Arcadia</h2>
+
+<p>
+Every world has a beginning.
+Some begin with history.
+Others begin with myth.
+Arcadia begins somewhere between both.
+</p>
+
+<p>
+This collection brings together every journey across the kingdoms,
+the creatures, the heroes and the hidden places that shaped one of
+the most magical worlds ever imagined. From peaceful forests to
+forgotten temples, from legendary battles to quiet moments beside
+the campfire, each memory forms part of a much larger story.
+</p>
+
+<p>
+Explore the characters, discover the lore, revisit iconic moments,
+and wander through a world where adventure waits beyond every path.
+</p>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- COLLECTION SECTIONS BEGIN BELOW                        -->
+<!-- Paste Part 2 immediately underneath this comment.      -->
+<!-- ====================================================== -->
+  <section class="section" id="collections">
+
+<h2 class="section-title">The Collections</h2>
+
+<p class="section-subtitle">
+Every chapter of Arcadia preserves a different corner of the world. Wander freely,
+follow your favourite stories, or lose yourself discovering something entirely new.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/dragons.jpg');"></div>
+
+<div class="card-content">
+<h3>Creatures</h3>
+
+<p>
+From graceful guardians of the skies to ancient beasts sleeping beneath forgotten
+mountains, every creature has its own legend waiting to be uncovered.
+</p>
+
+<a href="#">Explore</a>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/heroes.jpg');"></div>
+
+<div class="card-content">
+<h3>Heroes</h3>
+
+<p>
+The kings, queens, wanderers and unlikely champions whose choices shaped the fate
+of Arcadia through courage, sacrifice and hope.
+</p>
+
+<a href="#">Explore</a>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/kingdoms.jpg');"></div>
+
+<div class="card-content">
+<h3>Kingdoms</h3>
+
+<p>
+Travel across flourishing cities, hidden villages, towering castles and forgotten
+civilisations swallowed by nature long ago.
+</p>
+
+<a href="#">Explore</a>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/history.jpg');"></div>
+
+<div class="card-content">
+<h3>History</h3>
+
+<p>
+Discover the rise of ancient empires, legendary wars and the timeless myths that
+echo across generations.
+</p>
+
+<a href="#">Explore</a>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/artifacts.jpg');"></div>
+
+<div class="card-content">
+<h3>Artifacts</h3>
+
+<p>
+Relics of immense power, forgotten maps and treasured heirlooms that quietly shaped
+the destiny of the world.
+</p>
+
+<a href="#">Explore</a>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/locations.jpg');"></div>
+
+<div class="card-content">
+<h3>Hidden Places</h3>
+
+<p>
+Beyond the known roads lie enchanted forests, crystal caverns, floating ruins and
+countless mysteries still waiting to be explored.
+</p>
+
+<a href="#">Explore</a>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="quote">
+
+<blockquote>
+
+"Every legend begins as a whisper,
+every kingdom as a dream,
+and every adventure with a single step into the unknown."
+
+</blockquote>
+
+<span>— THE CHRONICLES OF ARCADIA</span>
+
+</section>
+
+<section class="section" id="timeline">
+
+<h2 class="section-title">A Living World</h2>
+
+<p class="section-subtitle">
+
+Arcadia is more than one story. It is a tapestry of countless journeys woven together
+across centuries.
+
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="card-image" style="background-image:url('media/arcadia/dawn.jpg');"></div>
+
+<div class="card-content">
+
+<h3>The Dawn Age</h3>
+
+<p>
+
+The first civilisations emerged alongside mythical creatures, forging uneasy alliances
+that would define the future of the realm.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-image" style="background-image:url('media/arcadia/golden-age.jpg');"></div>
+
+<div class="card-content">
+
+<h3>The Golden Kingdoms</h3>
+
+<p>
+
+A flourishing era of discovery, architecture, trade and exploration where great cities
+rose across the landscape.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-image" style="background-image:url('media/arcadia/fall.jpg');"></div>
+
+<div class="card-content">
+
+<h3>The Fall</h3>
+
+<p>
+
+Powerful conflicts fractured kingdoms, scattered ancient knowledge and transformed
+Arcadia forever.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="gallery">
+
+<h2 class="section-title">Gallery</h2>
+
+<p class="section-subtitle">
+
+Every screenshot, piece of artwork and treasured memory belongs somewhere.
+This gallery exists to celebrate them all.
+
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/gallery1.jpg');"></div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/gallery2.jpg');"></div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/gallery3.jpg');"></div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/gallery4.jpg');"></div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/gallery5.jpg');"></div>
+</div>
+
+<div class="card">
+<div class="card-image" style="background-image:url('media/arcadia/gallery6.jpg');"></div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>Marsh's Home</h3>
+
+<p>
+
+Arcadia is one world among many, carefully preserved inside Marsh's Home —
+a personal archive of stories, imagination and unforgettable adventures.
+
+</p>
+
+<p>
+
+<a href="index.html">← Return Home</a>
+
+</p>
+
+</footer>
+
+<script>
+
+window.addEventListener("scroll",function(){
+
+const nav=document.querySelector("nav");
+
+if(window.scrollY>80){
+
+nav.style.background="rgba(8,8,8,.92)";
+nav.style.padding="18px 7%";
+
+}else{
+
+nav.style.background="linear-gradient(to bottom,rgba(0,0,0,.78),rgba(0,0,0,0))";
+nav.style.padding="24px 7%";
+
+}
+
+});
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate([
+{
+opacity:0,
+transform:"translateY(40px)"
+},
+{
+opacity:1,
+transform:"translateY(0)"
+}
+],{
+duration:900,
+fill:"forwards",
+easing:"ease"
+});
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},{
+threshold:0.15
+});
+
+document.querySelectorAll(".card,.section-title,.section-subtitle,.intro p,.intro h2").forEach(el=>{
+
+el.style.opacity="0";
+observer.observe(el);
+
+});
+
+</script>
+
+</body>
+</html>
