@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wizards | Marsh's Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#070b16;
+color:white;
+overflow-x:hidden;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+height:58vh;
+
+display:flex;
+align-items:flex-end;
+
+padding:70px;
+
+position:relative;
+
+background:
+
+linear-gradient(to bottom,
+rgba(0,0,0,.15),
+rgba(5,18,45,.72),
+#070b16),
+
+url("media/arcadia/hero.jpg");
+
+background-size:cover;
+background-position:center;
+
+}
+
+.backButton{
+
+position:absolute;
+
+top:35px;
+left:40px;
+
+text-decoration:none;
+
+padding:12px 24px;
+
+border-radius:40px;
+
+background:rgba(5,20,50,.55);
+
+border:1px solid rgba(77,177,255,.25);
+
+color:white;
+
+transition:.25s;
+
+backdrop-filter:blur(10px);
+
+}
+
+.backButton:hover{
+
+background:#4db1ff;
+
+color:#06121f;
+
+box-shadow:0 0 20px rgba(77,177,255,.45);
+
+}
+
+.heroContent{
+
+max-width:900px;
+
+}
+
+.hero h1{
+
+font-size:3.8rem;
+
+margin-bottom:18px;
+
+}
+
+.hero p{
+
+font-size:1.1rem;
+
+line-height:1.8;
+
+max-width:760px;
+
+opacity:.9;
+
+margin-bottom:25px;
+
+}
+
+.meta{
+
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+
+}
+
+.meta span{
+
+padding:10px 18px;
+
+border-radius:40px;
+
+background:rgba(77,177,255,.08);
+
+border:1px solid rgba(77,177,255,.18);
+
+backdrop-filter:blur(12px);
+
+font-size:.95rem;
+
+}
+
+/* ================= CONTENT ================= */
+
+.wrapper{
+
+max-width:1500px;
+
+margin:auto;
+
+padding:70px 30px;
+
+}
+
+.player{
+
+position:relative;
+
+padding-bottom:56.25%;
+
+height:0;
+
+overflow:hidden;
+
+border-radius:24px;
+
+box-shadow:
+0 25px 70px rgba(0,0,0,.5),
+0 0 35px rgba(77,177,255,.08);
+
+margin-bottom:60px;
+
+}
+
+.player iframe{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+border:none;
+
+}
+
+.controls{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+margin-bottom:35px;
+
+}
+
+select{
+
+background:#122340;
+
+color:white;
+
+border:1px solid rgba(77,177,255,.3);
+
+padding:14px 22px;
+
+border-radius:14px;
+
+font-size:1rem;
+
+cursor:pointer;
+
+}
+
+#episodeList{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+
+gap:16px;
+
+margin-top:25px;
+
+}
+
+.episode{
+
+background:#0d172c;
+
+border:1px solid rgba(77,177,255,.12);
+
+padding:18px;
+
+border-radius:18px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.episode:hover{
+
+transform:translateY(-4px);
+
+background:#132241;
+
+border-color:#4db1ff;
+
+box-shadow:0 0 18px rgba(77,177,255,.18);
+
+}
+
+.episode.active{
+
+background:#173156;
+
+border:2px solid #4db1ff;
+
+box-shadow:0 0 20px rgba(77,177,255,.35);
+
+}
+
+.info{
+
+margin-top:60px;
+
+background:#0d172c;
+
+padding:35px;
+
+border-radius:24px;
+
+border:1px solid rgba(77,177,255,.15);
+
+}
+
+.info h2{
+
+margin-bottom:20px;
+
+}
+
+.info p{
+
+line-height:1.9;
+
+color:#d8d8d8;
+
+}
+
+@media(max-width:900px){
+
+.hero{
+
+height:48vh;
+
+padding:35px;
+
+}
+
+.hero h1{
+
+font-size:2.5rem;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<a class="backButton" href="arcadia.html">
+
+← Back to Collection
+
+</a>
+
+<div class="heroContent">
+
+<h1>Wizards</h1>
+
+<p>
+
+The final chapter before the epic conclusion sees Douxie, Merlin and the
+Guardians travel through time to Camelot, where ancient magic and destiny
+shape the future of both trolls and humanity.
+
+</p>
+
+<div class="meta">
+
+<span>⭐ 8.0 / 10</span>
+
+<span>2020</span>
+
+<span>Netflix Limited Series</span>
+
+<span>1 Season</span>
+
+<span>Fantasy • Adventure</span>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="wrapper">
+
+<div class="player">
+
+<iframe
+id="player"
+src="https://player.videasy.net/tv/105797/1/1"
+allowfullscreen
+allow="encrypted-media">
+</iframe>
+
+</div>
+
+<div class="controls">
+
+<h2>Episodes</h2>
+
+<select id="seasonSelect">
+
+<option value="1">Season 1</option>
+
+</select>
+
+</div>
+
+<div id="episodeList">
+
+<!-- JavaScript generates episodes -->
+
+</div>
+
+<div class="info">
+
+<h2 id="episodeTitle">
+
+Season 1 • Episode 1
+
+</h2>
+
+<p id="episodeDescription">
+
+Choose an episode to begin watching.
+
+</p>
+
+</div>
+
+<script>
+
+const showId=105797;
+const totalEpisodes=10;
+
+const player=document.getElementById("player");
+const episodeList=document.getElementById("episodeList");
+const title=document.getElementById("episodeTitle");
+const description=document.getElementById("episodeDescription");
+
+for(let episode=1;episode<=totalEpisodes;episode++){
+
+const card=document.createElement("div");
+
+card.className="episode";
+
+card.innerHTML=`
+
+<h3>Episode ${episode}</h3>
+
+<small>Season 1</small>
+
+`;
+
+card.onclick=()=>{
+
+document.querySelectorAll(".episode")
+.forEach(e=>e.classList.remove("active"));
+
+card.classList.add("active");
+
+player.src=
+`https://player.videasy.net/tv/${showId}/1/${episode}`;
+
+title.textContent=
+`Season 1 • Episode ${episode}`;
+
+description.textContent=
+`Now Playing Season 1, Episode ${episode}.`;
+
+};
+
+episodeList.appendChild(card);
+
+}
+
+episodeList.firstChild.click();
+
+</script>
+
+<!-- PART 2 STARTS BELOW -->
+  <!-- ================= SERIES INFORMATION ================= -->
+
+<div style="
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:30px;
+margin-top:60px;
+margin-bottom:70px;
+">
+
+<div class="info">
+
+<h2>About the Series</h2>
+
+<p>
+
+Wizards brings together heroes from Trollhunters and 3Below as Douxie,
+Merlin's apprentice, embarks on a journey through time to Camelot.
+Alongside Jim, Claire, Steve and their allies, he must prevent an ancient
+evil from rewriting history and changing the fate of Arcadia forever.
+
+</p>
+
+</div>
+
+<div class="info">
+
+<h2>Series Information</h2>
+
+<p>
+
+<strong>Series</strong><br>
+Wizards: Tales of Arcadia
+
+<br><br>
+
+<strong>Season</strong><br>
+1
+
+<br><br>
+
+<strong>Episodes</strong><br>
+10
+
+<br><br>
+
+<strong>Studio</strong><br>
+DreamWorks Animation
+
+<br><br>
+
+<strong>Created By</strong><br>
+Guillermo del Toro
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ================= NAVIGATION ================= -->
+
+<div style="
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+margin-bottom:70px;
+">
+
+<a href="3below.html"
+style="
+text-decoration:none;
+background:#0d172c;
+border:1px solid rgba(77,177,255,.15);
+padding:28px;
+border-radius:22px;
+color:white;
+transition:.25s;
+">
+
+<small style="opacity:.65;">
+
+Previous Series
+
+</small>
+
+<h2 style="margin-top:10px;">
+
+← 3Below
+
+</h2>
+
+</a>
+
+<a href="rise-of-the-titans.html"
+style="
+text-decoration:none;
+background:#0d172c;
+border:1px solid rgba(77,177,255,.15);
+padding:28px;
+border-radius:22px;
+color:white;
+text-align:right;
+transition:.25s;
+">
+
+<small style="opacity:.65;">
+
+Final Chapter
+
+</small>
+
+<h2 style="margin-top:10px;">
+
+Rise of the Titans →
+
+</h2>
+
+</a>
+
+</div>
+
+<!-- ================= QUOTE ================= -->
+
+<div class="info" style="margin-bottom:70px;">
+
+<h2>Merlin's Legacy</h2>
+
+<p style="font-style:italic;">
+
+"Magic isn't about power. It's about the choices we make with it."
+
+</p>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer
+style="
+padding:70px 20px;
+text-align:center;
+border-top:1px solid rgba(77,177,255,.12);
+background:linear-gradient(to top,#06111f,#070b16);
+color:#8eaac9;
+">
+
+<h2
+style="
+font-size:2rem;
+margin-bottom:15px;
+color:#4db1ff;
+">
+
+Marsh's Home
+
+</h2>
+
+<p
+style="
+max-width:720px;
+margin:auto;
+line-height:1.9;
+margin-bottom:35px;
+">
+
+Travel through time, uncover Merlin's secrets, and prepare for the epic
+conclusion to the Tales of Arcadia saga.
+
+</p>
+
+<div
+style="
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+">
+
+<a href="index.html"
+style="
+text-decoration:none;
+padding:12px 26px;
+background:#4db1ff;
+color:#06121f;
+border-radius:40px;
+font-weight:600;
+">
+
+Home
+
+</a>
+
+<a href="arcadia.html"
+style="
+text-decoration:none;
+padding:12px 26px;
+background:#132241;
+color:white;
+border-radius:40px;
+">
+
+Arcadia Collection
+
+</a>
+
+</div>
+
+<p
+style="
+margin-top:45px;
+font-size:.85rem;
+opacity:.6;
+">
+
+© 2026 Marsh's Home
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
