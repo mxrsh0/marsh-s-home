@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DreamWorks Dragons: Riders of Berk | Marsh's Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#0b0b0b;
+color:white;
+overflow-x:hidden;
+
+}
+
+.hero{
+
+height:55vh;
+
+display:flex;
+align-items:flex-end;
+
+padding:70px;
+
+background:
+linear-gradient(to bottom,
+rgba(0,0,0,.25),
+rgba(0,0,0,.82),
+#0b0b0b),
+
+url("media/httyd/hero.jpg");
+
+background-size:cover;
+background-position:center;
+
+position:relative;
+
+}
+
+.backButton{
+
+position:absolute;
+
+top:35px;
+left:40px;
+
+text-decoration:none;
+
+padding:12px 24px;
+
+border-radius:40px;
+
+background:rgba(0,0,0,.55);
+
+color:white;
+
+transition:.25s;
+
+}
+
+.backButton:hover{
+
+background:#f9b233;
+
+color:#111;
+
+}
+
+.heroContent{
+
+max-width:900px;
+
+}
+
+.hero h1{
+
+font-size:3.7rem;
+
+margin-bottom:15px;
+
+}
+
+.hero p{
+
+line-height:1.8;
+
+font-size:1.08rem;
+
+max-width:760px;
+
+opacity:.92;
+
+}
+
+.wrapper{
+
+max-width:1500px;
+
+margin:auto;
+
+padding:60px 30px;
+
+}
+
+.player{
+
+position:relative;
+
+padding-bottom:56.25%;
+
+height:0;
+
+overflow:hidden;
+
+border-radius:22px;
+
+margin-bottom:50px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+}
+
+.player iframe{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+border:none;
+
+}
+
+.controls{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+margin-bottom:30px;
+
+}
+
+select{
+
+background:#1c1c1c;
+
+color:white;
+
+border:none;
+
+padding:14px 20px;
+
+border-radius:14px;
+
+font-size:1rem;
+
+cursor:pointer;
+
+}
+
+#episodeList{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+
+gap:15px;
+
+margin-top:25px;
+
+}
+
+.episode{
+
+background:#171717;
+
+border:1px solid rgba(255,255,255,.08);
+
+padding:18px;
+
+border-radius:16px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.episode:hover{
+
+transform:translateY(-3px);
+
+background:#222;
+
+}
+
+.episode.active{
+
+border:2px solid #f9b233;
+
+background:#262626;
+
+}
+
+.episode h3{
+
+font-size:1rem;
+
+margin-bottom:8px;
+
+}
+
+.episode small{
+
+opacity:.65;
+
+}
+
+.info{
+
+margin-top:50px;
+
+background:#151515;
+
+padding:35px;
+
+border-radius:22px;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.info h2{
+
+margin-bottom:18px;
+
+}
+
+.info p{
+
+line-height:1.9;
+
+color:#d4d4d4;
+
+}
+
+@media(max-width:900px){
+
+.hero{
+
+height:48vh;
+
+padding:35px;
+
+}
+
+.hero h1{
+
+font-size:2.5rem;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<a class="backButton" href="httyd.html">
+
+← Back to Collection
+
+</a>
+
+<div class="heroContent">
+
+<h1>DreamWorks Dragons: Riders of Berk</h1>
+
+<p>
+
+Continue Hiccup and Toothless' journey between the first two films.
+Choose a season and jump straight into any episode.
+
+</p>
+
+</div>
+
+</section>
+
+<div class="wrapper">
+
+<div class="player">
+
+<iframe
+id="player"
+src="https://player.videasy.net/tv/44305/1/1"
+allowfullscreen
+allow="encrypted-media">
+</iframe>
+
+</div>
+
+<div class="controls">
+
+<h2>Episodes</h2>
+
+<select id="seasonSelect">
+
+<option value="1">Season 1</option>
+
+<option value="2">Season 2</option>
+
+</select>
+
+</div>
+
+<div id="episodeList">
+
+<!-- JavaScript generates these -->
+
+</div>
+
+<div class="info">
+
+<h2 id="episodeTitle">
+
+Episode 1
+
+</h2>
+
+<p id="episodeDescription">
+
+Select any episode to begin watching.
+
+</p>
+
+</div>
+
+<script>
+
+const showId = 44305;
+
+const seasons = {
+
+1:20,
+2:20
+
+};
+
+const player = document.getElementById("player");
+
+const episodeList = document.getElementById("episodeList");
+
+const seasonSelect = document.getElementById("seasonSelect");
+
+const title = document.getElementById("episodeTitle");
+
+const description = document.getElementById("episodeDescription");
+
+function loadSeason(season){
+
+episodeList.innerHTML="";
+
+for(let episode=1;episode<=seasons[season];episode++){
+
+const card=document.createElement("div");
+
+card.className="episode";
+
+card.innerHTML=
+
+`
+<h3>Episode ${episode}</h3>
+
+<small>Season ${season}</small>
+`;
+
+card.onclick=()=>{
+
+document
+.querySelectorAll(".episode")
+.forEach(e=>e.classList.remove("active"));
+
+card.classList.add("active");
+
+player.src=
+`https://player.videasy.net/tv/${showId}/${season}/${episode}`;
+
+title.textContent=
+`Season ${season} • Episode ${episode}`;
+
+description.textContent=
+`Now playing Season ${season}, Episode ${episode}.`;
+
+};
+
+episodeList.appendChild(card);
+
+}
+
+episodeList.firstChild.click();
+
+}
+
+seasonSelect.onchange=()=>{
+
+loadSeason(seasonSelect.value);
+
+};
+
+loadSeason(1);
+
+</script>
+
+<!-- PART 2 BELOW -->
+  <!-- ================= SERIES INFORMATION ================= -->
+
+<div style="
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:30px;
+margin-top:60px;
+margin-bottom:70px;
+">
+
+<div class="info">
+
+<h2>About the Series</h2>
+
+<p>
+
+DreamWorks Dragons: Riders of Berk continues the story immediately
+after the first film. As Berk adapts to life alongside dragons,
+Hiccup, Astrid and the rest of the gang face new adventures,
+discover unseen dragons and strengthen the bond between Vikings
+and dragons before the events of How to Train Your Dragon 2.
+
+</p>
+
+</div>
+
+<div class="info">
+
+<h2>Series Information</h2>
+
+<p>
+
+<strong>TV Show</strong><br>
+DreamWorks Dragons: Riders of Berk
+
+<br><br>
+
+<strong>Seasons</strong><br>
+2
+
+<br><br>
+
+<strong>Episodes</strong><br>
+40
+
+<br><br>
+
+<strong>Runtime</strong><br>
+Approximately 22 minutes
+
+<br><br>
+
+<strong>Studio</strong><br>
+DreamWorks Animation
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ================= QUICK NAVIGATION ================= -->
+
+<div style="
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+margin-bottom:70px;
+">
+
+<a href="how-to-train-your-dragon.html"
+style="
+text-decoration:none;
+background:#151515;
+border:1px solid rgba(255,255,255,.08);
+padding:28px;
+border-radius:22px;
+color:white;
+transition:.25s;
+">
+
+<small style="opacity:.6;">
+
+Previous
+
+</small>
+
+<h2 style="margin-top:10px;">
+
+← How to Train Your Dragon
+
+</h2>
+
+</a>
+
+<a href="httyd-defenders-of-berk.html"
+style="
+text-decoration:none;
+background:#151515;
+border:1px solid rgba(255,255,255,.08);
+padding:28px;
+border-radius:22px;
+color:white;
+text-align:right;
+transition:.25s;
+">
+
+<small style="opacity:.6;">
+
+Next Series
+
+</small>
+
+<h2 style="margin-top:10px;">
+
+Defenders of Berk →
+
+</h2>
+
+</a>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer
+style="
+padding:60px 20px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+color:#888;
+">
+
+<h2
+style="
+font-size:2rem;
+margin-bottom:15px;
+color:white;
+">
+
+Marsh's Home
+
+</h2>
+
+<p
+style="
+max-width:700px;
+margin:auto;
+line-height:1.8;
+margin-bottom:30px;
+">
+
+Choose any season, pick any episode,
+and continue the adventure whenever you like.
+
+</p>
+
+<div
+style="
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+">
+
+<a href="index.html"
+style="
+text-decoration:none;
+padding:12px 24px;
+background:#f9b233;
+color:#111;
+border-radius:40px;
+font-weight:600;
+">
+
+Home
+
+</a>
+
+<a href="httyd.html"
+style="
+text-decoration:none;
+padding:12px 24px;
+background:#222;
+color:white;
+border-radius:40px;
+">
+
+HTTYD Collection
+
+</a>
+
+</div>
+
+<p
+style="
+margin-top:45px;
+font-size:.85rem;
+opacity:.6;
+">
+
+© 2026 Marsh's Home
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
